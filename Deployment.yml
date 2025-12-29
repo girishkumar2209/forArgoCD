@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: girishapp
-          image: nginx
+          image: httpd
           ports:
             - containerPort: 80
 
