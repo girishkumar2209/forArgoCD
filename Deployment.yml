@@ -5,7 +5,7 @@ kind: Deployment
 metadata:
   name : girish
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: appforgirish
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: girishapp
-          image: girish071/devops:flight
+          image: nginx
           ports:
             - containerPort: 80
 
