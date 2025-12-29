@@ -3,36 +3,37 @@ apiVersion: apps/v1
 kind: Deployment
 
 metadata:
-  name : girish
+  name : himalayan
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
-      app: appforgirish
+      app: appforhimalayan
   template:
     metadata:
       labels:
-        app: appforgirish
+        app: appforhimalayan
     spec:
       containers:
-        - name: girishapp
-          image: girish071/devops:flight
+        - name: himalayan1
+          image: girish071/private:himalayan
           ports:
             - containerPort: 80
-
+      imagePullSecrets:
+        - name: resecret
 ---
 apiVersion: v1
 kind: Service
 
 metadata:
-  name: serviceforgirishapp
+  name: himalayansvc
 
 spec:
   type: NodePort
   selector:
-    app: appforgirish
+    app: appforhimalayan
   ports:
     - port: 80
       targetPort: 80
-      nodePort: 32000
+      nodePort: 31000
   
